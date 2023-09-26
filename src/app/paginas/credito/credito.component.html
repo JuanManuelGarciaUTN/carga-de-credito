@@ -1,0 +1,38 @@
+<div [hidden]="scaneando">
+  <div class="container">
+    <h1>Creditos</h1>
+    <h2>{{puntos}}</h2>
+  </div>
+  <div [hidden]="borrar || error">
+    <ion-fab slot="fixed" horizontal="center" vertical="bottom">
+      <ion-fab-button (click)="Scanear()">
+        <ion-icon name="qr-code-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab slot="fixed" horizontal="start" vertical="top">
+      <ion-fab-button size="small" color="danger" (click)="IntentarBorrar()">
+        <ion-icon name="trash-bin-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab slot="fixed" horizontal="end" vertical="top" (click)="CerrarSesion()">
+      <ion-fab-button size="small" color="danger">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+  <div *ngIf="error" class="fullsreen">
+    <div class="contenedor">
+      <p>{{error}}</p>
+      <button class="ok" (click)="Cancelar()">Ok</button>
+    </div>
+  </div>
+  <div *ngIf="borrar" class="fullsreen">
+    <div class="contenedor">
+      <p>¿Seguro Desea Borrar Los Créditos?</p>
+      <button class="ok" (click)="Borrar()">Si</button>
+      <button class="ok" (click)="Cancelar()">No</button>
+    </div>
+  </div>
+</div>
+
+

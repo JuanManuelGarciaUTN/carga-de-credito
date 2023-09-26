@@ -1,0 +1,62 @@
+
+<ion-content class="ion-text-center ion-padding">
+  <div class="container">
+    <img src="../../../assets/ic_launcher.png" width="20%" alt="">
+    <h1>Carga de Crédito</h1>
+    <form [formGroup]="form" (ngSubmit)="Login()">
+      <ion-input 
+        type="email" 
+        placeholder="Correo Electrónico" 
+        formControlName="email" 
+        errorText="Ingrese Correo Válido"
+        class="ion-margin-top inp"
+        fill="solid">
+      </ion-input>
+      <ion-input 
+        type="password" 
+        placeholder="Contraseña" 
+        formControlName="password" 
+        fill="solid"
+        errorText="Contraseña Requerida"
+        class="ion-margin-top inp">
+      </ion-input>
+      <ion-button 
+        type="submit"
+        fill="solid" 
+        shape="round"
+        class="ion-margin-top but"
+        [disabled]="form.invalid">
+        Ingresar
+        <ion-icon slot="end" name="log-in-outline"></ion-icon>
+      </ion-button>
+      <h2 *ngIf="loginInvalido">CREDENCIALES INVÁLIDAS</h2>
+    </form>
+  </div>
+  <div class="validando" *ngIf="validando">
+    <img src="../../../assets/ic_launcher.png" width="25%" alt="">
+    Validando Datos
+    <ion-spinner></ion-spinner>
+  </div>
+  <ion-fab slot="fixed" horizontal="start" vertical="bottom" [hidden]="validando">
+    <ion-fab-button>
+      <ion-icon name="star-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button class="fit" (click)="completarAdmin()">
+        Admin
+      </ion-fab-button>
+      <ion-fab-button class="fit" (click)="completarInvitado()">
+        Invitado
+      </ion-fab-button>
+      <ion-fab-button class="fit" (click)="completarUsuario()">
+        Usuario
+      </ion-fab-button>
+      <ion-fab-button class="fit" (click)="completarAnonimo()">
+        Anónimo
+      </ion-fab-button>
+      <ion-fab-button class="fit" (click)="completarTester()">
+        Tester
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
