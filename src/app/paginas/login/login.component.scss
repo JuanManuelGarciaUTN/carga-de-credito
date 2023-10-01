@@ -19,6 +19,10 @@ h1{
     color: black;
 }
 
+form{
+    padding: 0px 15px;
+}
+
 .validando{
     position: absolute;
     display: flex;
@@ -35,6 +39,42 @@ h1{
     font-size: 50px;
     font-family: title;
 }
+
+.splash-animado{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #81c6cf;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.icon-animado{
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+    animation-iteration-count: 1; 
+    animation: shake 2.5s; 
+}
+@keyframes shake {
+    0% { transform: translate(7px, 7px) rotate(0deg); }
+   // 10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-8px, 0px) rotate(10deg); }
+   // 30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(2px, -2px) rotate(0deg); }
+   // 50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-8px, 1px) rotate(0deg); }
+    //70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-8px, -1px) rotate(10deg); }
+    //90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -8px) rotate(-1deg); }
+  }
+
 
 .container {
     position: fixed;
@@ -55,4 +95,48 @@ h1{
     text-align: left;
     color: black;
     font-weight: 600;
+}
+
+.ok{
+    width: 30%;
+    font-size: 14px;
+    margin: 0px 5px;
+    padding: 10px 5px;
+    color: black;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+
+.fullsreen{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.408);
+    top: 0;
+    left: 0;
+    z-index: 10;
+    font-size: 20px;
+    font-family: myFont;
+}
+
+.contenedor{
+    color: black;
+    text-align: center;
+    width: 90vw;
+    background-color: #89e7e7;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+
+.top-right{
+    position: relative;
+    top: 0;
+    right: 0;
+    padding: 5px;
 }

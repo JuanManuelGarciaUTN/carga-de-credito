@@ -2,13 +2,13 @@
   <div class="container">
     <h1>Creditos</h1>
     <h2>{{puntos}}</h2>
+    <div class="bot-center">
+      <button class="qr" (click)="Scanear()">
+        <ion-icon class="qr-icon" name="qr-code-outline"></ion-icon>
+      </button>
+    </div>
   </div>
   <div [hidden]="borrar || error">
-    <ion-fab slot="fixed" horizontal="center" vertical="bottom">
-      <ion-fab-button (click)="Scanear()">
-        <ion-icon name="qr-code-outline"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
     <ion-fab slot="fixed" horizontal="start" vertical="top">
       <ion-fab-button size="small" color="danger" (click)="IntentarBorrar()">
         <ion-icon name="trash-bin-outline"></ion-icon>

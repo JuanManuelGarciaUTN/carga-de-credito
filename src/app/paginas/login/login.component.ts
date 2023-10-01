@@ -15,6 +15,8 @@ export class LoginComponent {
   public form!: FormGroup;
   public loginInvalido = false;
   public validando = false;
+  public accesosRapidos = false;
+  public cargando = false;
 
   constructor(private fb: FormBuilder,private router : Router, private db: DatabaseService){ 
     this.db.usuario = undefined;
@@ -27,7 +29,11 @@ export class LoginComponent {
   ngAfterViewInit(){
     setTimeout(()=>{
       SplashScreen.hide();
-    }, 1000); 
+      this.cargando = true;
+      setTimeout(()=>{
+        this.cargando = false;
+      }, 2500);
+    }, 500); 
   }
 
   Login(){
@@ -42,6 +48,7 @@ export class LoginComponent {
           datos.clave = "";
           this.db.login(datos);
           this.validando = false;
+          this.limpiarInputs();
           this.router.navigate(["credito"]);
           return;
         }
@@ -56,24 +63,42 @@ export class LoginComponent {
     this.form.get('password')?.setValue(this.form.get('password')?.value.trim());
   }
 
+  private limpiarInputs(){
+    this.form.get('email')?.setValue("");
+    this.form.get('password')?.setValue("");
+  }
+
   completarInvitado(){
+    this.accesosRapidos = false;
     this.completarForm("invitado@invitado.com", "222222");
   }
 
   completarAdmin(){
+    this.accesosRapidos = false;
     this.completarForm("admin@admin.com", "111111");
   }
 
   completarUsuario(){
+    this.accesosRapidos = false;
     this.completarForm("usuario@usuario.com", "333333");
   }
 
   completarAnonimo(){
+    this.accesosRapidos = false;
     this.completarForm("anonimo@anonimo.com", "444444");
   }
 
   completarTester(){
+    this.accesosRapidos = false;
     this.completarForm("tester@tester.com", "555555");
+  }
+
+  iniciarAccesoRapido(){
+    this.accesosRapidos = true;
+  }
+
+  cerrarAccesoRapido(){
+    this.accesosRapidos = false;
   }
 
   private completarForm(email: string, password: string){

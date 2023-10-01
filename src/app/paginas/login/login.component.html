@@ -29,6 +29,14 @@
         Ingresar
         <ion-icon slot="end" name="log-in-outline"></ion-icon>
       </ion-button>
+      <ion-button 
+      fill="solid" 
+      shape="round"
+      class="ion-margin-top"
+      (click)="iniciarAccesoRapido()"
+      >
+      Accesos Rápidos
+      </ion-button>
       <h2 *ngIf="loginInvalido">CREDENCIALES INVÁLIDAS</h2>
     </form>
   </div>
@@ -37,26 +45,29 @@
     Validando Datos
     <ion-spinner></ion-spinner>
   </div>
-  <ion-fab slot="fixed" horizontal="start" vertical="bottom" [hidden]="validando">
-    <ion-fab-button>
-      <ion-icon name="star-outline"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button class="fit" (click)="completarAdmin()">
+  <div class="splash-animado" *ngIf="cargando">
+    <img class="icon-animado" src="../../../assets/ic_launcher.png" width="25%" alt="">
+  </div>
+  <div *ngIf="accesosRapidos" class="fullsreen">
+    <div class="contenedor">
+      <ion-fab-button (click)="cerrarAccesoRapido()" size="small" color="danger" class="top-right">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-fab-button>
+      <button class="ok" (click)="completarAdmin()">
         Admin
-      </ion-fab-button>
-      <ion-fab-button class="fit" (click)="completarInvitado()">
+      </button>
+      <button class="ok" (click)="completarInvitado()">
         Invitado
-      </ion-fab-button>
-      <ion-fab-button class="fit" (click)="completarUsuario()">
+      </button>
+      <button class="ok" (click)="completarUsuario()">
         Usuario
-      </ion-fab-button>
-      <ion-fab-button class="fit" (click)="completarAnonimo()">
+      </button>
+      <button class="ok" (click)="completarAnonimo()">
         Anónimo
-      </ion-fab-button>
-      <ion-fab-button class="fit" (click)="completarTester()">
+      </button>
+      <button class="ok" (click)="completarTester()">
         Tester
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
+      </button>
+    </div>
+  </div>
 </ion-content>
