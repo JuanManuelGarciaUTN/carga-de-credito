@@ -27,13 +27,19 @@ export class LoginComponent {
   }
 
   ngAfterViewInit(){
-    setTimeout(()=>{
-      SplashScreen.hide();
+    if(this.db.usuario){
+      this.db.usuario = undefined;
+    }
+    else{
       this.cargando = true;
       setTimeout(()=>{
-        this.cargando = false;
-      }, 2500);
-    }, 500); 
+        SplashScreen.hide();
+        setTimeout(()=>{
+          this.cargando = false;
+        }, 2500);
+      }, 500); 
+    }
+
   }
 
   Login(){

@@ -133,7 +133,6 @@ export class CreditoComponent  implements OnInit {
   }
 
   CerrarSesion(){
-    this.db.usuario = undefined;
     this.router.navigate(['home'])
   }
 }
